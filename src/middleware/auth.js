@@ -7,7 +7,7 @@ const auth = async (req, res, next) => {
     try {
         const user = await User.findOne({_id: data._id, 'tokens.token': token});
         if(!user) {
-            throw new Error();
+            throw new Error('Not Authorized to access this resource');
         }
         req.user = user;
         req.token = token;
