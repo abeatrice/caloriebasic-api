@@ -18,4 +18,17 @@ router.post('/calories', auth, async (req, res) => {
     }
 });
 
+//get user calories
+router.get('/me/calories/:date?', auth, async (req, res) => {
+    const date = req.params.date || null;
+    try {
+        const calories = await Calorie.findByUserId(req.user._id, date);
+        res.send({
+            calories
+        });
+    } catch (error) {
+        res.status(400).send(error);        
+    }
+});
+
 module.exports = router;

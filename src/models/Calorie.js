@@ -15,13 +15,14 @@ const calorieSchema = mongoose.Schema({
     }
 });
 
-//get calories by user id
-calorieSchema.statics.findByUserId = async (id) => {
-    const calories = await Calorie.find({id});
-    if(!calories) {
-        return null;
+//get calories by user id, optional date
+calorieSchema.statics.findByUserId = async (id, date) => {
+    if (date) {
+        const start = new Date(date);
+        const end = new Date(start.setDate(start.getDate() + 1));
+        return await Calorie.find({user_id: id, date: {"$gte": date, "$lt": end}});
     }
-    return calories;
+    return await Calorie.find({user_id: id});
 };
 
 const Calorie = mongoose.model('Calorie', calorieSchema);
