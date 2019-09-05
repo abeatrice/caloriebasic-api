@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const calorieSchema = mongoose.Schema({
     user_id: {
@@ -16,11 +17,11 @@ const calorieSchema = mongoose.Schema({
 });
 
 //get calories by user id, optional date
-calorieSchema.statics.findByUserId = async (id, date) => {
+calorieSchema.statics.findByUserId = async (id, date, days) => {
     if (date) {
-        const start = new Date(date);
-        const end = new Date(start.setDate(start.getDate() + 1));
-        return await Calorie.find({user_id: id, date: {"$gte": date, "$lt": end}});
+        const end = moment(date);
+        const start = moment(end).subtract(days ? days : 1, 'days');
+        return await Calorie.find({user_id: id, date: {"$gte": start, "$lt": end}}).sort( { date: -1 } );
     }
     return await Calorie.find({user_id: id});
 };

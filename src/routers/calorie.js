@@ -19,10 +19,11 @@ router.post('/calories', auth, async (req, res) => {
 });
 
 //get user calories
-router.get('/me/calories/:date?', auth, async (req, res) => {
+router.get('/me/calories/:date?/:days?', auth, async (req, res) => {
     const date = req.params.date || null;
+    const days = req.params.days || null;
     try {
-        const calories = await Calorie.findByUserId(req.user._id, date);
+        const calories = await Calorie.findByUserId(req.user._id, date, days);
         res.send({
             calories
         });
