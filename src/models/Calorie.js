@@ -16,11 +16,15 @@ const calorieSchema = mongoose.Schema({
     }
 });
 
-//get calories by user id for the week prior to given date
-calorieSchema.statics.findByUserId = async (id, end) => {
+//get all calories
+calorieSchema.statics.all = async () => {
+    return await Calorie.find({});
+}
+
+//get calorie sums by user id for the week prior to given date
+calorieSchema.statics.userSumsWeekPrior = async (id, end) => {
     end = moment(end).format('YYYY-MM-DD');
     start = moment(end).subtract(7, 'days').format('YYYY-MM-DD');
-    console.log(start, end)
     return await Calorie.aggregate([{ 
             $match : { 
                 user_id: id,

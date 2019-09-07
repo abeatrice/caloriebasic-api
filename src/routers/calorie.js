@@ -10,6 +10,7 @@ router.post('/calories', auth, async (req, res) => {
     try {
         const calorie = new Calorie(req.body);
         calorie.user_id = req.user._id;
+        calorie.date = req.body.date || moment().format('YYYY-MM-DD');
         calorie.save();
         res.status(201).send({
             calorie
@@ -19,11 +20,23 @@ router.post('/calories', auth, async (req, res) => {
     }
 });
 
+//get all calories: TODO middleware admin
+router.get('/calories', async(req, res) => {
+    try {
+        const calories = await Calorie.all();
+        res.send({
+            calories
+        })
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
+
 //get user calories
 router.get('/me/calories/:date?', auth, async (req, res) => {
     const date = req.params.date || moment().format('YYYY-MM-DD');
     try {
-        const calories = await Calorie.findByUserId(req.user._id, date);
+        const calories = await Calorie.userSumsWeekPrior(req.user._id, date);
         res.send({
             calories
         });
