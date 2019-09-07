@@ -16,14 +16,33 @@ const calorieSchema = mongoose.Schema({
     }
 });
 
-//get calories by user id, optional date
-calorieSchema.statics.findByUserId = async (id, date, days) => {
-    if (date) {
-        const end = moment(date);
-        const start = moment(end).subtract(days ? days : 1, 'days');
-        return await Calorie.find({user_id: id, date: {"$gte": start, "$lt": end}}).sort( { date: -1 } );
-    }
-    return await Calorie.find({user_id: id});
+//get calories by user id for the week prior to given date
+calorieSchema.statics.findByUserId = async (id, end) => {
+    end = moment(end).format('YYYY-MM-DD');
+    start = moment(end).subtract(7, 'days').format('YYYY-MM-DD');
+    console.log(start, end)
+    return await Calorie.aggregate([{ 
+            $match : { 
+                user_id: id,
+                date: {
+                    "$gt" : new Date(start), 
+                    "$lte" : new Date(end)
+                }
+            }
+        }, { 
+            $group: {
+                _id: {
+                    "date": {$dateToString: {format: "%Y-%m-%d", date: "$date"}}
+                },
+                quantity: {
+                    $sum: "$quantity"
+                }
+            }
+        }, {
+            $sort: {
+                _id: -1
+            }
+        }]);
 };
 
 const Calorie = mongoose.model('Calorie', calorieSchema);

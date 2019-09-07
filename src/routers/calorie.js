@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 const Calorie = require('../models/Calorie');
 const auth = require('../middleware/auth');
 
@@ -19,11 +20,10 @@ router.post('/calories', auth, async (req, res) => {
 });
 
 //get user calories
-router.get('/me/calories/:date?/:days?', auth, async (req, res) => {
-    const date = req.params.date || null;
-    const days = req.params.days || null;
+router.get('/me/calories/:date?', auth, async (req, res) => {
+    const date = req.params.date || moment().format('YYYY-MM-DD');
     try {
-        const calories = await Calorie.findByUserId(req.user._id, date, days);
+        const calories = await Calorie.findByUserId(req.user._id, date);
         res.send({
             calories
         });
