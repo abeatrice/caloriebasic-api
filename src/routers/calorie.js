@@ -8,9 +8,19 @@ const router = express.Router();
 //create calories
 router.post('/calories', auth, async (req, res) => {
     try {
-        const calorie = new Calorie(req.body);
-        calorie.user_id = req.user._id;
-        calorie.date = req.body.date || moment().format('YYYY-MM-DD');
+        const date = req.body.date || moment().format('YYYY-MM-DD');
+        const user_id = req.user._id;
+        let calorie = await Calorie.caloriesOnDate(user_id, date);
+        if(calorie) {
+            calorie.quantity += req.body.quantity;
+        } else {
+            calorie = new Calorie(req.body);
+            calorie.user_id = user_id;
+            calorie.date = date;
+        }
+        if(calorie.quantity < 0) {
+            calorie.quantity = 0;
+        }
         calorie.save();
         res.status(201).send({
             calorie
