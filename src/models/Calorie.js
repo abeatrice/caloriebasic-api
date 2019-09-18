@@ -19,7 +19,15 @@ const calorieSchema = mongoose.Schema({
 //get all calories
 calorieSchema.statics.all = async () => {
     return await Calorie.find({});
-}
+};
+
+//get calories for date requested or today
+calorieSchema.statics.caloriesOnDate = async (id, date) => {
+    return await Calorie.findOne({
+        "user_id": id, 
+        "date": date
+    });
+};
 
 //get calorie sums by user id for the week prior to given date
 calorieSchema.statics.userSumsWeekPrior = async (id, end) => {
