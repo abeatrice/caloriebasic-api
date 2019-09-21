@@ -14,7 +14,7 @@ router.post('/users', async (req, res) =>{
             'user': {
                 '_id': user._id,
                 'email': user.email,
-                'name': user.name,
+                'userName': user.userName,
                 'token': token
             }
         });
@@ -26,8 +26,8 @@ router.post('/users', async (req, res) =>{
 //login user
 router.post('/users/login', async (req, res) => {
     try {
-        const {email, password} = req.body;
-        const user = await User.findByCredentials(email, password);
+        const {userName, password} = req.body;
+        const user = await User.findByCredentials(userName, password);
         if(!user) {
             return res.status(401).send({error: 'Invalid Credentials'});
         }
@@ -36,7 +36,7 @@ router.post('/users/login', async (req, res) => {
             'user': {
                 '_id': user._id,
                 'email': user.email,
-                'name': user.name,
+                'userName': user.userName,
                 'token': token
             }
         });
