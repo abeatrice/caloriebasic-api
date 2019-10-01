@@ -30,18 +30,6 @@ router.post('/calories', auth, async (req, res) => {
     }
 });
 
-//get all calories: TODO middleware admin
-router.get('/calories', async(req, res) => {
-    try {
-        const calories = await Calorie.all();
-        res.send({
-            calories
-        })
-    } catch (error) {
-        res.status(400).send(error);
-    }
-});
-
 //get user calories
 router.get('/me/calories/:date?', auth, async (req, res) => {
     const date = moment(req.params.date) || moment();
