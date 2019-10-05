@@ -1,18 +1,16 @@
-# calorie basic api
----
+# Calorie Basic API
 This is the api for the caloriebasic mobile first web application.
 
-This API supports: 
-registering a new user
-logging in to a user
-logging out of a user
-logging out user on all devices
-getting a user info
+#### This API supports:
+	Registering a new user
+	Logging In
+	Logging Out
+	Logging Out All Devices
+	Get User
+	Create Calories
+	Get Calories
 
-create calories
-getting calories
-
-### Postman Collection
-Open postman
-Select Import
-Select File: caloriebasic.postman_collection.json
+#### Postman Collection
+	Open Postman
+	Select Import
+	Select File: caloriebasic.postman_collection.json
