@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "bdb57e32-4b95-492a-a21a-79ce2fba95aa",
+		"name": "caloriebasic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\": \"someone\",\n\t\"email\": \"someone@example.com\",\n\t\"password\": \"password\"\n}"
+				},
+				"url": {
+					"raw": "206.189.208.10:3001/users",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\": \"someone\",\n\t\"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.189.208.10:3001/users/login",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk0MTE4ZmNjNzE0OTA3ZjRlNmM4NzIiLCJpYXQiOjE1NzAyOTI0MjF9.o767PqBsemNbjhCh-Ba79BhDJhzWoOJToChWs3rGkdo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "206.189.208.10:3001/users/me",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk0MTE4ZmNjNzE0OTA3ZjRlNmM4NzIiLCJpYXQiOjE1NzAyOTI0MjF9.o767PqBsemNbjhCh-Ba79BhDJhzWoOJToChWs3rGkdo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "206.189.208.10:3001/users/me/logout",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"me",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logoutall",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwMjJ9.SQlx_RqKor3xuQ05bGN7X2FCfSE1dqcin5H_nePtSXY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "206.189.208.10:3001/users/me/logoutall",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"users",
+						"me",
+						"logoutall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create calories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwOTN9.TZU0L_thWzbFXQV6i95XRmz8SCgR61LSMb8CO-vFTsc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"quantity\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "206.189.208.10:3001/calories",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"calories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my calories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwOTN9.TZU0L_thWzbFXQV6i95XRmz8SCgR61LSMb8CO-vFTsc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "206.189.208.10:3001/me/calories",
+					"host": [
+						"206",
+						"189",
+						"208",
+						"10"
+					],
+					"port": "3001",
+					"path": [
+						"me",
+						"calories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
