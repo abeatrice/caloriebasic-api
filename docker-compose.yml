@@ -1,0 +1,27 @@
+version: "3"
+services:
+  caloriebasic-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.local
+    command: 'pm2-runtime src/app.js'
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URL=mongodb://root:examplehost1@mongo:27017/caloriebasic_api
+      - PORT=8000
+    image: caloriebasic-api
+    ports:
+      - 8000:8000
+    # volumes:
+    #   - ./:/usr/src/caloriebasic
+    #   - caloriebasic-api:
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    image: mongo:3.4
+    ports:
+      - 27017:27017
+    stop_grace_period: 2m
+
