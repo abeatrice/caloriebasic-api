@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "serve": "env-cmd -f .env nodemon src/app.js"
+    "serve": "env-cmd -f .env nodemon src/app.js",
+    "test": "jest"
   },
   "license": "MIT",
   "dependencies": {
@@ -19,6 +20,14 @@
   },
   "devDependencies": {
     "env-cmd": "^9.0.3",
-    "nodemon": "^1.19.1"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
