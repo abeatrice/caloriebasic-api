@@ -9,10 +9,10 @@ services:
       - mongo
     environment:
       - MONGODB_URL=mongodb://mongo:27017/caloriebasic
-      - PORT=8000
+      - PORT=3001
     image: caloriebasic-api
     ports:
-      - 8000:8000
+      - 3001:3001
     volumes:
       - .:/usr/src/caloriebasic
       - /usr/src/caloriebasic/node_modules
