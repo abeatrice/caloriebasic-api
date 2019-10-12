@@ -22,14 +22,12 @@
 					"raw": "{\n\t\"userName\": \"someone\",\n\t\"email\": \"someone@example.com\",\n\t\"password\": \"password\"\n}"
 				},
 				"url": {
-					"raw": "206.189.208.10:3001/users",
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"users"
 					]
@@ -59,14 +57,12 @@
 					}
 				},
 				"url": {
-					"raw": "206.189.208.10:3001/users/login",
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"users",
 						"login"
@@ -83,7 +79,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk0MTE4ZmNjNzE0OTA3ZjRlNmM4NzIiLCJpYXQiOjE1NzAyOTI0MjF9.o767PqBsemNbjhCh-Ba79BhDJhzWoOJToChWs3rGkdo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDlmZDg3ZjJiZmQ0MzM5ZjQ3OTNlMDciLCJpYXQiOjE1NzA3NTY3NTh9.Y4kdoxqQUOMpGeHd2r_s0OXdwuSCkChcQUlSgv_FjuE",
 							"type": "string"
 						}
 					]
@@ -91,14 +87,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "206.189.208.10:3001/users/me",
+					"raw": "http://localhost:3000/users/me",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"users",
 						"me"
@@ -115,7 +109,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk0MTE4ZmNjNzE0OTA3ZjRlNmM4NzIiLCJpYXQiOjE1NzAyOTI0MjF9.o767PqBsemNbjhCh-Ba79BhDJhzWoOJToChWs3rGkdo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDlmZDg3ZjJiZmQ0MzM5ZjQ3OTNlMDciLCJpYXQiOjE1NzA3NTY3NTh9.Y4kdoxqQUOMpGeHd2r_s0OXdwuSCkChcQUlSgv_FjuE",
 							"type": "string"
 						}
 					]
@@ -127,14 +121,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "206.189.208.10:3001/users/me/logout",
+					"raw": "http://localhost:3000/users/me/logout",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"users",
 						"me",
@@ -152,7 +144,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwMjJ9.SQlx_RqKor3xuQ05bGN7X2FCfSE1dqcin5H_nePtSXY",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDlmZDg3ZjJiZmQ0MzM5ZjQ3OTNlMDciLCJpYXQiOjE1NzA3NTY3OTJ9.NuAi0uBbEejvp3kv7UGdpwBHgglWK2phFcYwUvSb0D8",
 							"type": "string"
 						}
 					]
@@ -160,14 +152,12 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "206.189.208.10:3001/users/me/logoutall",
+					"raw": "http://localhost:3000/users/me/logoutall",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"users",
 						"me",
@@ -185,7 +175,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwOTN9.TZU0L_thWzbFXQV6i95XRmz8SCgR61LSMb8CO-vFTsc",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDlmZDg3ZjJiZmQ0MzM5ZjQ3OTNlMDciLCJpYXQiOjE1NzA3NTY4MTN9.VR6Zir2SB2-y52H6Sq8JFJUDb7bTkXRVsZy9qqtX-4Y",
 							"type": "string"
 						}
 					]
@@ -209,14 +199,12 @@
 					}
 				},
 				"url": {
-					"raw": "206.189.208.10:3001/calories",
+					"raw": "http://localhost:3000/calories",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"calories"
 					]
@@ -232,7 +220,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDk4YzQ5Y2MyNTU4YTA1ZDkwMmFhNDAiLCJpYXQiOjE1NzAyOTMwOTN9.TZU0L_thWzbFXQV6i95XRmz8SCgR61LSMb8CO-vFTsc",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDlmZDg3ZjJiZmQ0MzM5ZjQ3OTNlMDciLCJpYXQiOjE1NzA3NTY4MTN9.VR6Zir2SB2-y52H6Sq8JFJUDb7bTkXRVsZy9qqtX-4Y",
 							"type": "string"
 						}
 					]
@@ -240,14 +228,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "206.189.208.10:3001/me/calories",
+					"raw": "http://localhost:3000/me/calories",
+					"protocol": "http",
 					"host": [
-						"206",
-						"189",
-						"208",
-						"10"
+						"localhost"
 					],
-					"port": "3001",
+					"port": "3000",
 					"path": [
 						"me",
 						"calories"
