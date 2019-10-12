@@ -8,19 +8,19 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGODB_URL=mongodb://root:example@mongo:27017/caloriebasic_api
+      - MONGODB_URL=mongodb://mongo:27017/caloriebasic
       - PORT=8000
     image: caloriebasic-api
     ports:
       - 8000:8000
-    # volumes:
-    #   - ./:/usr/src/caloriebasic
-    #   - caloriebasic-api:
+    volumes:
+      - .:/usr/src/caloriebasic
+      - /usr/src/caloriebasic/node_modules
   mongo:
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITD_DATABASE: caloriebasic
     image: mongo:3.4
+    hostname: mongo
     ports:
       - 27017:27017
     stop_grace_period: 2m
