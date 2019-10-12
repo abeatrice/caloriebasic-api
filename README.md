@@ -14,3 +14,27 @@ This is the api for the caloriebasic mobile first web application.
 	Open Postman
 	Select Import
 	Select File: caloriebasic.postman_collection.json
+
+## Installation Requirements
+
+```
+docker
+docker-compose
+make
+```
+
+## Makefile Commands
+
+Everything that requires a node environment should be done inside a docker container
+created from the image at this root.
+
+```
+- build
+  will build the docker container with `docker-compose`
+
+- run
+  runs the server inside docker
+
+- stop
+  stops docker-compose and removes volumes and images
+```
