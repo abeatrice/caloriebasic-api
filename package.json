@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon src/app.js",
+    "serve": "env-cmd -f .env nodemon src/app.js",
     "test": "jest"
   },
   "license": "MIT",
