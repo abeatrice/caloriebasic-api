@@ -1,0 +1,10 @@
+FROM node:10.6
+
+COPY ./src /usr/src/caloriebasic/src
+COPY ./package-lock.json /usr/src/caloriebasic
+COPY ./package.json /usr/src/caloriebasic
+
+WORKDIR /usr/src/caloriebasic
+
+RUN npm install && \
+    npm install pm2 -g
