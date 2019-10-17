@@ -1,14 +1,10 @@
 FROM node:10.6
 
-RUN apt-get update -y
-
 COPY ./src /usr/src/caloriebasic/src
-COPY ./.env.example /usr/src/caloriebasic
 COPY ./package-lock.json /usr/src/caloriebasic
 COPY ./package.json /usr/src/caloriebasic
-COPY ./yarn.lock /usr/src/caloriebasic
 
 WORKDIR /usr/src/caloriebasic
 
 RUN npm install && \
-    npm -g install pm2 -g
+    npm install pm2 -g

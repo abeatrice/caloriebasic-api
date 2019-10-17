@@ -4,11 +4,12 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile.local
-    command: 'pm2-runtime src/app.js'
+    command: 'npm run serve'
     depends_on:
       - mongo
     environment:
       - MONGODB_URL=mongodb://mongo:27017/caloriebasic
+      - JWT_KEY=skdjf239FS84sfjjsFDSlf234jsiejr2DFi3j4j
       - PORT=3001
     image: caloriebasic-api
     ports:
@@ -17,11 +18,10 @@ services:
       - .:/usr/src/caloriebasic
       - /usr/src/caloriebasic/node_modules
   mongo:
+    image: mongo:3.4
     environment:
       MONGO_INITD_DATABASE: caloriebasic
-    image: mongo:3.4
     hostname: mongo
     ports:
       - 27017:27017
     stop_grace_period: 2m
-
