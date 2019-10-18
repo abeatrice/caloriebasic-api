@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('./routers/user');
 const calorieRouter = require('./routers/calorie');
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 require('./db/db');
 
 const app = express();
