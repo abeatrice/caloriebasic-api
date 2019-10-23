@@ -11,9 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(userRouter);
-app.use(calorieRouter);
+app.use('/api', userRouter);
+app.use('/api', calorieRouter);
 
-app.listen(port, () => {
-    console.log(`server running on port ${port}`);
-});
+app.listen(port, () => console.log(`server running on port ${port}`));
