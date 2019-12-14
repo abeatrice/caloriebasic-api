@@ -34,27 +34,27 @@ calorieSchema.statics.userSumsWeekPrior = async (id, end) => {
     end = moment(end).format('YYYY-MM-DD');
     start = moment(end).subtract(7, 'days').format('YYYY-MM-DD');
     return await Calorie.aggregate([{ 
-            $match : { 
-                user_id: id,
-                date: {
-                    "$gt" : new Date(start), 
-                    "$lte" : new Date(end)
-                }
+        $match : { 
+            user_id: id,
+            date: {
+                "$gt" : new Date(start), 
+                "$lte" : new Date(end)
             }
-        }, { 
-            $group: {
-                _id: {
-                    "date": {$dateToString: {format: "%Y-%m-%d", date: "$date"}}
-                },
-                quantity: {
-                    $sum: "$quantity"
-                }
+        }
+    }, { 
+        $group: {
+            _id: {
+                "date": {$dateToString: {format: "%Y-%m-%d", date: "$date"}}
+            },
+            quantity: {
+                $sum: "$quantity"
             }
-        }, {
-            $sort: {
-                _id: -1
-            }
-        }]);
+        }
+    }, {
+        $sort: {
+            _id: 1
+        }
+    }]);
 };
 
 const Calorie = mongoose.model('Calorie', calorieSchema);
