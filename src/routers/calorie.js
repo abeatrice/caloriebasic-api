@@ -43,4 +43,17 @@ router.get('/me/calories/:date?', auth, async (req, res) => {
     }
 });
 
+//get user sums for week prior
+router.get('/me/caloriesWeekPrior/:date?', auth, async(req, res) => {
+    const date = moment(req.params.date) || moment();
+    try {
+        const calories = await Calorie.userSumsWeekPrior(req.user._id, date.format('YYYY-MM-DD'));
+        res.send({
+            calories
+        });
+    } catch (error) {
+        res.status(400).send(error);        
+    }
+});
+
 module.exports = router;
